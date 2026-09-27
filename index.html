@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sinigo</title>
+<style>
+body{margin:0;font-family:Arial;background:#f4f7ff;color:#172033}
+header{padding:30px 20px;background:linear-gradient(135deg,#2563eb,#fff,#ef4444);border-radius:0 0 28px 28px}
+main{padding:20px;max-width:600px;margin:auto}
+h1{margin:0 0 8px}
+.stats{display:flex;gap:8px;margin-bottom:20px}
+.stat{background:#fff;padding:12px;border-radius:15px;flex:1;text-align:center}
+button{width:100%;padding:17px;margin:7px 0;border:0;border-radius:15px;font-size:18px;font-weight:bold;color:white}
+.math{background:#2563eb}.fr{background:#ef4444}.science{background:#16a34a}
+.shop{background:#fff;padding:18px;border-radius:20px;margin-top:20px}
+.blue{background:#2563eb}.purple{background:#8b5cf6}
+#message{font-size:18px;font-weight:bold;margin-top:18px}
+</style>
+</head>
+<body>
+<header><h1>👋 Bienvenue sur Sinigo !</h1><p>Apprends. Progresse. Gagne. 🚀</p></header>
+<main>
+<div class="stats">
+<div class="stat">🔥<br><b>1</b></div>
+<div class="stat">⭐<br><b id="xp">0</b> XP</div>
+<div class="stat">💎<br><b id="gems">500</b></div>
+<div class="stat">❤️<br><b>5</b></div>
+</div>
+<h2>📚 Apprendre</h2>
+<button class="math" onclick="cours('Maths')">➗ Maths</button>
+<button class="fr" onclick="cours('Français')">🇫🇷 Français</button>
+<button class="science" onclick="cours('Sciences')">🔬 Sciences</button>
+<div class="shop"><h2>🛍️ Boutique</h2>
+<button class="blue" onclick="boost()">⚡ Boost XP — 1 €</button>
+<button class="purple" onclick="skin()">👕 Skin — 500 💎</button></div>
+<p id="message"></p>
+</main>
+<script>
+let xp=0,gems=500;
+function cours(nom){xp+=20;gems+=10;document.getElementById('xp').textContent=xp;document.getElementById('gems').textContent=gems;document.getElementById('message').textContent='🎉 '+nom+' terminé ! +20 XP et +10 💎';}
+function boost(){document.getElementById('message').textContent='⚡ Boost XP sélectionné !';}
+function skin(){if(gems>=500){gems-=500;document.getElementById('gems').textContent=gems;document.getElementById('message').textContent='👕 Skin acheté !';}else document.getElementById('message').textContent='❌ Pas assez de 💎';}
+</script>
+</body>
+</html>
